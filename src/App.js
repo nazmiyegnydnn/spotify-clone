@@ -1,8 +1,16 @@
 import React from 'react'
+import {BrowserRouter , Routes , Route} from 'react-router-dom';
+import Home from './components/home/Home';
 
 const App = () => {
   return (
-    <div>Spotify Clo aqwe ne</div>
+    <div>
+    <BrowserRouter>
+    <Routes>
+      <Route path='/' element={<Home/>}></Route>
+    </Routes>
+    </BrowserRouter>
+    </div>
   )
 }
 
