@@ -1,0 +1,23 @@
+.modal{
+    position: relative;
+   h2{
+        color: white;
+        font-size:xx-large;
+    }
+    p{
+        color: gray;
+        font-size: medium;
+    }
+      
+    .close{
+     position: absolute;
+     width: 30px;
+     height: 30px;
+     background-color: red;
+     color: white;
+     border: 0;
+     top: 0;
+     right: 0;
+     cursor: pointer;
+    }
+}
