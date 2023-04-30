@@ -207,6 +207,6 @@ const initialState = {
     }
   })
 
-  export const { filterTitle, buttonFocus  } = dataSlice.actions
+  export const { filterTitle, buttonFocus ,deleteFilte  } = dataSlice.actions
 
   export default dataSlice.reducer  

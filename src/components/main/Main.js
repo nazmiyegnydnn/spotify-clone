@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from 'react';
 import "./Main.scss";
 import { useSelector , useDispatch} from "react-redux";
 import {buttonFocus } from "../../dataSlice";
@@ -6,6 +6,12 @@ import {buttonFocus } from "../../dataSlice";
 const Main = () => {
   const { musicData } = useSelector((state) => state.data);
   const dispatch = useDispatch()
+  const [buttonName, setButtonName] = useState([])
+
+  const handleButtonFocus = (el) => {
+    dispatch(buttonFocus(el))
+    setButtonName([...buttonName, el.name])
+  }
 
   return (
     <div className="main">
@@ -19,7 +25,7 @@ const Main = () => {
               <h2>{el.name}</h2>
               <h3>{el.singer}</h3>
               <p>{el.date}</p>
-              <button onClick={() => dispatch(buttonFocus(el))}>Çalma Listesin Ekle</button>
+              <button disabled={buttonName.includes(el.name) ? true : false} onClick={() => (handleButtonFocus(el))}>Çalma Listesin Ekle</button>
             </div>
           ))}
       </div>
@@ -33,7 +39,7 @@ const Main = () => {
               <h2>{el.name}</h2>
               <h3>{el.singer}</h3>
               <p>{el.date}</p>
-              <button onClick={() => dispatch(buttonFocus(el))}>Çalma Listesin Ekle</button>
+              <button  onClick={() => (handleButtonFocus(el))}>Çalma Listesin Ekle</button>
             </div>
           ))}
       </div>
@@ -47,7 +53,7 @@ const Main = () => {
               <h2>{el.name}</h2>
               <h3>{el.singer}</h3>
               <p>{el.date}</p>
-              <button onClick={() => dispatch(buttonFocus(el))}>Çalma Listesin Ekle</button>
+              <button  onClick={() => (handleButtonFocus(el))}>Çalma Listesin Ekle</button>
             </div>
           ))}
       </div>
