@@ -39,7 +39,7 @@ const Main = () => {
               <h2>{el.name}</h2>
               <h3>{el.singer}</h3>
               <p>{el.date}</p>
-              <button  onClick={() => (handleButtonFocus(el))}>Çalma Listesin Ekle</button>
+              <button disabled={buttonName.includes(el.name) ? true : false} onClick={() => (handleButtonFocus(el))}>Çalma Listesin Ekle</button>
             </div>
           ))}
       </div>
@@ -53,7 +53,7 @@ const Main = () => {
               <h2>{el.name}</h2>
               <h3>{el.singer}</h3>
               <p>{el.date}</p>
-              <button  onClick={() => (handleButtonFocus(el))}>Çalma Listesin Ekle</button>
+              <button disabled={buttonName.includes(el.name) ? true : false} onClick={() => (handleButtonFocus(el))}>Çalma Listesin Ekle</button>
             </div>
           ))}
       </div>

@@ -1,9 +1,11 @@
 import React from 'react'
 import "./Modal.scss"
-import { useSelector } from 'react-redux';
+import { useSelector ,useDispatch} from 'react-redux';
+import {deleteFilter } from "../../dataSlice";
 
 const Modal = ({setModal}) => {
     const {addList} = useSelector(state => state.data)
+    const dispatch = useDispatch()
     const closeClick = () =>{
       setModal(false)
     }
@@ -12,7 +14,10 @@ const Modal = ({setModal}) => {
         <h2>Çalma Listesi</h2>
     { 
         addList.map((el) =>
-        <p className='playList'>{el.name}</p>
+       <div className='playList'>
+           <p className='playListText'>{el.name}</p>
+           <button className='playListClose'  onClick={() => dispatch(deleteFilter(el.id))}>X</button>
+       </div>
         )
     }
     <button className='close' onClick={closeClick}>X</button>

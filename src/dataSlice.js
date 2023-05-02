@@ -202,11 +202,15 @@ const initialState = {
     
       buttonFocus : (state , action) => {
         state.addList = [...state.addList, action.payload]     
-     }
+     },
+     deleteFilter : (state , action) => {
+      const musicDataFilter = state.addList?.filter((el) => el.id !== action.payload)
+      state.addList = musicDataFilter
+  }
 
     }
   })
 
-  export const { filterTitle, buttonFocus ,deleteFilte  } = dataSlice.actions
+  export const { filterTitle, buttonFocus ,deleteFilter } = dataSlice.actions
 
   export default dataSlice.reducer  
