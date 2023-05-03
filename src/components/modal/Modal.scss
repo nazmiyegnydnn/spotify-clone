@@ -27,7 +27,7 @@
          .playListClose{
              width: 30px;
              height: 30px;
-             color: red;
+             color: gray;
              background-color: white;
              font-weight: bolder;
              border: 0;
@@ -35,6 +35,7 @@
              padding-top: 20px;
              &:hover{
               cursor: pointer;
+              font-size: large;
              }
            }
   

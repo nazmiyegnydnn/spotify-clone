@@ -3,16 +3,18 @@ import "./Main.scss";
 import { useSelector , useDispatch} from "react-redux";
 import {buttonFocus } from "../../dataSlice";
 
-const Main = () => {
+const Main = ({setButtonName , buttonName}) => {
   const { musicData } = useSelector((state) => state.data);
+
   const dispatch = useDispatch()
-  const [buttonName, setButtonName] = useState([])
+
 
   const handleButtonFocus = (el) => {
     dispatch(buttonFocus(el))
     setButtonName([...buttonName, el.name])
   }
 
+  
   return (
     <div className="main">
       <p className="aText"> A ALBÜMÜ</p>

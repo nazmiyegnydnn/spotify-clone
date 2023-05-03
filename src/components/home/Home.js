@@ -8,6 +8,8 @@ import {useState }from "react";
 
 const Home = () => {
     const [modal, setModal] = useState(false)
+    const [buttonName, setButtonName] = useState([])
+
 
   return (
     <div className="home">
@@ -17,11 +19,17 @@ const Home = () => {
       </div>
       <div className="rightMenu">
         <Header />
-        <Main />
+        <Main 
+        buttonName={buttonName}
+        setButtonName={setButtonName}
+         />
         {
           modal &&
           <Modal 
-          setModal={setModal}/>
+          setModal={setModal}
+          buttonName={buttonName}
+          setButtonName={setButtonName}
+          />
         }
       </div>
     </div>

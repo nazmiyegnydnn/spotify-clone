@@ -3,7 +3,7 @@ import "./Modal.scss"
 import { useSelector ,useDispatch} from 'react-redux';
 import {deleteFilter } from "../../dataSlice";
 
-const Modal = ({setModal}) => {
+const Modal = ({setModal, setButtonName, buttonName} ) => {
     const {addList} = useSelector(state => state.data)
     const dispatch = useDispatch()
     const closeClick = () =>{
@@ -15,6 +15,12 @@ const Modal = ({setModal}) => {
         setModal(false);
       }
     }, [addList]);
+
+    const deleteButtonFocus = (el) => {
+      dispatch(deleteFilter(el.id))
+      setButtonName(buttonName.splice(el.name ,0))
+    }
+
     
   return (
     <div className='modal'>
@@ -23,7 +29,7 @@ const Modal = ({setModal}) => {
        addList.map((el) =>
        <div className='playList'>
            <p className='playListText'>{el.name}</p>
-           <button className='playListClose'  onClick={() => dispatch(deleteFilter(el.id))}>X</button>
+           <button className='playListClose' onClick={() => (deleteButtonFocus(el))}>X</button>
        </div>
         )
     }
